@@ -25,13 +25,13 @@ func DoIncomes(ks protocol.Klines, startAt time.Time, days ...int) Incomes {
 			ls = append(ls, &Income{
 				Offset: v,
 				Time:   x.Time,
-				Source: protocol.K{
+				Source: protocol.Kline{
 					Open:  ks[0].Open,
 					High:  ks[0].High,
 					Low:   ks[0].Low,
 					Close: ks[0].Close,
 				},
-				Current: protocol.K{
+				Current: protocol.Kline{
 					Open:  x.Open,
 					High:  x.High,
 					Low:   x.Low,
@@ -47,10 +47,10 @@ func DoIncomes(ks protocol.Klines, startAt time.Time, days ...int) Incomes {
 type Incomes []*Income
 
 type Income struct {
-	Offset  int        //偏移量
-	Time    time.Time  //时间
-	Source  protocol.K //源
-	Current protocol.K //当前
+	Offset  int            //偏移量
+	Time    time.Time      //时间
+	Source  protocol.Kline //源
+	Current protocol.Kline //当前
 }
 
 func (this *Income) String() string {

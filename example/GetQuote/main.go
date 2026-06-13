@@ -28,7 +28,7 @@ func main() {
 	logs.PanicErr(err)
 
 	for _, v := range resp {
-		logs.Debug(v)
+		logs.Debug(v.Code, v.Kline)
 	}
 
 	select {}

@@ -416,13 +416,11 @@ func (this *Client) GetQuote(codes ...string) (protocol.QuotesResp, error) {
 				for ii, v := range quotes[i].BuyLevel {
 					quotes[i].BuyLevel[ii].Price = m.Price(v.Price)
 				}
-				quotes[i].K = protocol.K{
-					Last:  m.Price(quotes[i].K.Last),
-					Open:  m.Price(quotes[i].K.Open),
-					High:  m.Price(quotes[i].K.High),
-					Low:   m.Price(quotes[i].K.Low),
-					Close: m.Price(quotes[i].K.Close),
-				}
+				quotes[i].Kline.Last = m.Price(quotes[i].Kline.Last)
+				quotes[i].Kline.Open = m.Price(quotes[i].Kline.Open)
+				quotes[i].Kline.High = m.Price(quotes[i].Kline.High)
+				quotes[i].Kline.Low = m.Price(quotes[i].Kline.Low)
+				quotes[i].Kline.Close = m.Price(quotes[i].Kline.Close)
 			}
 		}
 	}
